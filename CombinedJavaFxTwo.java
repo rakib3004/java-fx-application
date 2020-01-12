@@ -53,30 +53,16 @@ public class Main extends Application {
         root.addRow(1, lastNameLbl, lastNameFld);
 
 // Set the Size of the GridPane
-        root.setMinSize(450, 550);
+        root.setMinSize(550, 50);
 
-        root.setStyle("-fx-padding: 10;" +
 
-                "-fx-border-style: solid inside;" +
-                "-fx-border-width: 5;" +
-                "-fx-border-insets: 10;" +
-                "-fx-border-radius: 3;" +
-                "-fx-border-color: green;");
 
-       // Scene scene = new Scene(root);
+      //  Scene scene = new Scene(root);
 // Add the scene to the Stage
         //stage.setScene(scene);
 
         CheckBox fordCbx = new CheckBox("Male");
-        CheckBox audiCbx = new CheckBox("Female");
-        fordCbx.setTranslateX(0);
-        fordCbx.setTranslateY(300);
-        audiCbx.setTranslateX(0);
-        audiCbx.setTranslateY(400);
-        audiCbx.setPrefSize(150, 20);
-        fordCbx.setPrefSize(150, 20);
-
-        audiCbx.setAllowIndeterminate(true);
+        CheckBox audiCbx = new CheckBox("Female"); audiCbx.setAllowIndeterminate(true);
         fordCbx.selectedProperty().addListener(new ChangeListener<Boolean>() {
             public void changed(ObservableValue<? extends Boolean> ov, final Boolean value, final Boolean newValue) {
                 if(newValue != null && newValue) {
@@ -92,15 +78,15 @@ public class Main extends Application {
         { if(newValue != null && newValue) { printMessage("Your indeterminate Selection: Male"); } }
         });
 
-        root.getChildren().addAll(selectionMsg, fordCbx, audiCbx);
+        VBox root1 = new VBox();
+        root1.getChildren().addAll(root,selectionMsg, fordCbx, audiCbx);
 
 
 
+        root1.setMinSize(550, 450);
+        root1.setSpacing(15);
 
-        root.setMinSize(550, 250);
-
-
-        root.setStyle("-fx-padding: 10;" +
+        root1.setStyle("-fx-padding: 10;" +
                 "-fx-border-style: solid inside;" +
                 "-fx-border-width: 7;" +
                 "-fx-border-insets: 5;" +
@@ -110,9 +96,9 @@ public class Main extends Application {
         // Create the Scene
 
         // Create the Scene
-       Scene scene = new Scene(root);
+        Scene scene1 = new Scene(root1);
 // Add the scene to the Stage
-        stage.setScene(scene);
+        stage.setScene(scene1);
 // Set the title of the Stage
         stage.setTitle("Students Information");
 // Display the Stage
