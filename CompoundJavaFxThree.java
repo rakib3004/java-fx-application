@@ -19,8 +19,11 @@ import javax.swing.*;
 public class Main extends Application {
 
 
-    Label selectionMsg = new Label("Choose your Gender");
-    Label messageLbl = new Label("Choose your BSSE Batch!");
+    Label messageLbl = new Label("Choose your Gender : ");
+    Label messageLb2 = new Label("Choose your BSSE Batch : ");
+    Label messageLb3 = new Label();
+    Label selectionMsg = new Label();
+
     public static void main(String[] args)
     {
         Application.launch(args);
@@ -64,11 +67,11 @@ public class Main extends Application {
         fordCbx.selectedProperty().addListener(new ChangeListener<Boolean>() {
             public void changed(ObservableValue<? extends Boolean> ov, final Boolean value, final Boolean newValue) {
                 if(newValue != null && newValue) {
-                    printMessage("Your Selection: Male"); } } });
+                    printCheck("Your Selection: Male"); } } });
         audiCbx.selectedProperty().addListener(new ChangeListener<Boolean>() {
             public void changed(ObservableValue<? extends Boolean> ov, final Boolean value, final Boolean newValue) {
                 if(newValue != null && newValue) {
-                    printMessage("Your Selection: Female"); } } });
+                    printCheck("Your Selection: Female"); } } });
 
 
         audiCbx.indeterminateProperty().addListener(new ChangeListener<Boolean>() { public void changed(ObservableValue<? extends Boolean> ov,
@@ -94,7 +97,7 @@ public class Main extends Application {
 
 
         VBox root1 = new VBox();
-        root1.getChildren().addAll(root,selectionMsg, fordCbx, audiCbx,cars);
+        root1.getChildren().addAll(root,messageLbl, fordCbx, audiCbx,messageLb3,messageLb2,cars,selectionMsg);
 
 
 
@@ -120,25 +123,22 @@ public class Main extends Application {
         stage.show();
 
 
-
-
-
-
-/*
-* Set the padding of the GridPane
-* Set the border-style of the GridPane
-* Set the border-width of the GridPane
-* Set the border-insets of the GridPane
-* Set the border-radius of the GridPane
-* Set the border-color of the GridPane
-JavaFX Programming Cookbook 6 / 219
-*/
-
     }
     public void printMessage(String message)
     {
 // Set the Text of the Label
         selectionMsg.setText(message);
+    }
+
+ public void printInfo(String message)
+    {
+// Set the Text of the Label
+        selectionMsg.setText(message);
+    }
+public void printCheck(String message)
+    {
+// Set the Text of the Label
+        messageLb3.setText(message);
     }
 
 }
