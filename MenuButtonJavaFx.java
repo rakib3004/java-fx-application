@@ -17,7 +17,7 @@ import javax.swing.*;
 public class Main extends Application {
 
 
-    Label messageLbl = new Label("Choose your car!");
+    Label messageLbl = new Label("Choose your BSSE Batch!");
     public static void main(String[] args) { Application.launch(args);
 
     }
